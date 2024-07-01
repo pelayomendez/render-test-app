@@ -5,8 +5,8 @@ import os
 # Define the base URL of the Pokemon API
 BASE_URL = "https://pokeapi.co/api/v2"
 
-# Define the base URL of the Pokemon API 
-# DEFAULT_POKEMON_NAME = os.environ.get('DEFAULT_POKEMON_NAME')
+# Define the base URL of the Pokemon API
+DEFAULT_POKEMON_NAME = os.environ.get('DEFAULT_POKEMON_NAME')
 
 
 # Function to make an HTTP GET request to the Pokemon API
@@ -21,7 +21,7 @@ def get_pokemon_data(pokemon_name):
 # Streamlit app code
 def main():
     st.title("Pokemon API Example")
-    pokemon_name = st.text_input("Enter a Pokemon name:")
+    pokemon_name = st.text_input("Enter a Pokemon name:", value=DEFAULT_POKEMON_NAME or "charizard")
     if st.button("Get Pokemon Data"):
         if pokemon_name:
             pokemon_data = get_pokemon_data(pokemon_name)
